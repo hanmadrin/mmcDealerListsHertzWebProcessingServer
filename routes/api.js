@@ -95,6 +95,11 @@ router.post('/processData', async (req, res) => {
 
     const rawCount = rawJson.length;
     const newCount = newJson.length;
+    if(rawCount === 0){
+        // res.json({status: 'success', message: 'No data to process'});
+        throw new Error('No data to process');
+        
+    }
     console.log(rawCount, newCount);
 
     // save newJson to new.csv file
